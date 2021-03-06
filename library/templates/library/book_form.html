@@ -1,0 +1,26 @@
+{%extends 'library/home.html' %}
+{%load static%}
+
+{%block head%}
+<title>Add Book</title>
+<script src="{% static 'js/add_book.js' %}" defer></script>
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+{%endblock%}
+
+{%block body%}
+<div class="container">
+    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+    <!-- we use frame to make it as a target for form.
+        because we need to stop redirection until fetch is completed.
+    -->
+<form method="post" enctype="multipart/form-data" target="dummyframe">
+{%csrf_token%}
+{% include 'includes/form.html' %}
+<label for="Libraries">Libraries:</label><br>
+<input type="search" name="Libraries" id="search-lib">
+<button class='block-btn' type="submit">Add Book</button>
+</form>
+
+</div>
+
+{%endblock%}

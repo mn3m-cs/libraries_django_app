@@ -1,0 +1,104 @@
+@media screen and (min-width:576px){
+#welcome{
+    height:100vh;
+    width:100vw;
+    background-image:url("../imgs/welcome.jpg");
+    background-repeat: no-repeat;
+    /* TODO: wait 1 seconds then show quote with effects. */ 
+}
+#quote{
+    float:right;
+    background-color: white;
+    margin-top:35vh;
+    text-align: right;
+    direction: unset !important;
+    padding:.5rem;
+    font-size:1.5rem;    
+    /* color: transparent; */
+    -webkit-text-stroke: 2px black;
+    font-family: 'El Messiri', sans-serif;
+    outline-width: .3rem;
+    outline-color: rgba(194, 194, 194, 0.822);
+    outline-style: solid;
+    user-select: none;
+}
+
+#quote-author{
+    direction: unset !important;
+    text-align:left;
+    float: left;
+    margin-top: .3rem;
+    font-size:1rem;
+}
+
+#main-nav{
+    height:15vh;
+}
+
+#main-nav ul{
+    list-style-type:none;
+    background-color: rgb(182, 136, 50);
+    width:100vw;
+    margin-left:-15px;
+}
+
+#main-nav ul li{
+    display: inline-block;
+
+}
+
+#home-li{
+    margin-left:-7%;
+}
+
+#main-nav ul li a{
+    text-decoration:none;
+    color:white;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+
+}
+
+#main-nav ul li a:hover{
+    background-color: rgb(255, 166, 0);
+}
+#main-nav ul li a:active{
+    background-color: rgb(182, 136, 50);
+}
+
+#books-container{
+    display: flex;
+    direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book-fitem{
+    width:30vw;
+    height:50vh;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-right:1rem;
+
+}
+
+.book-fitem img{
+    height:75%;
+    margin-bottom:1rem;
+}
+
+/* book name */
+.book-fitem p{
+    text-align:center;
+}
+
+.author{
+    margin-top:-.5rem;
+    font-size:.8rem;
+    
+}
+
+}
+

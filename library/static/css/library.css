@@ -1,0 +1,8 @@
+.more{
+    color:rgb(15, 91, 255);
+    cursor:pointer;
+}
+
+.more:hover{
+    text-decoration: none;
+}
