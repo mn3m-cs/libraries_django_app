@@ -9,8 +9,11 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     birth_date = models.DateField()
     gender = models.IntegerField(choices=GENDER_CHOICES)
-    photo = models.ImageField(upload_to='UserProfilePhotos',blank=True,null=True)
+    photo = models.ImageField(upload_to='UserProfilePhotos/',blank=True,null=True)
     is_author = models.BooleanField()
+    country = models.CharField(null=True,blank=True,max_length=50)
+    city = models.CharField(null=True,blank=True,max_length=50)
+    address= models.CharField(null=True,blank=True,max_length=50)
 
     def __str__(self):
         return str(self.user)

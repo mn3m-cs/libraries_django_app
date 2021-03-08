@@ -1,0 +1,39 @@
+{% extends 'users/base_users.html' %}
+{%load static%}
+{%block head%}
+<title>Login</title>
+<link rel="stylesheet" href='{%static "css/users/users.css" %}'>
+{%endblock%}
+
+{%block body%}
+<div class="container">
+    <h1 class="text-center logo my-4">
+        <!-- <a href="">{{school}} </a> -->
+    </h1>
+
+<div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Log in</h3>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}"> <!-- if not looged in user request page require to br login,
+            he will be redirected to login , and after he login will be redirected to the first requested page-->
+            {% include 'includes/form.html' %}
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+          </form>
+        </div> 
+        <div class="card-footer text-muted text-center">
+          Create an account
+        </div>
+      </div>
+      <div class="text-center py-2">
+        <small>
+          <a href="{% url 'password_reset'%}" class="text-muted">Forgot your password?</a>
+        </small>
+      </div>
+    </div>
+  </div>
+  </div>
+{%endblock%}
