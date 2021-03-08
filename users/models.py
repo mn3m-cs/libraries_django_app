@@ -25,12 +25,12 @@ class UserprofilePhones(models.Model):
     def __str__(self):
         return self.phone
 
-class UserProfileAddresses(models.Model):
-    userprofile = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
-    address = models.CharField(max_length=200)
+# class UserProfileAddresses(models.Model):
+#     userprofile = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
+#     address = models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.address
+#     def __str__(self):
+#         return self.address
 
 class UserProfileFavourites(models.Model):
     userprofile = models.ForeignKey(UserProfile,on_delete=models.CASCADE)

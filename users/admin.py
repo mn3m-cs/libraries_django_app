@@ -7,6 +7,6 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 admin.site.register(models.UserProfile,UserProfileAdmin)
 admin.site.register(models.UserprofilePhones)
-admin.site.register(models.UserProfileAddresses)
+# admin.site.register(models.UserProfileAddresses)
 admin.site.register(models.UserProfileFavourites)
 

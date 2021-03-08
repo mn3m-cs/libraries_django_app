@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import UserProfile,UserprofilePhones,UserProfileFavourites,UserProfileAddresses
+from .models import UserProfile,UserprofilePhones
+# UserProfileFavourites,UserProfileAddresses
 from django.contrib.auth.models import User
 
 GENDER_CHOICES = (
@@ -20,5 +21,4 @@ class UserProfileCreatetionForm(UserCreationForm):
 
     class Meta:
         model = User
-        # fields =('user','birth_date','gender','photo','is_author')
         fields = ('username','first_name','last_name','email')
