@@ -14,11 +14,11 @@ class UserProfileCreatetionForm(UserCreationForm):
     gender = forms.ChoiceField(choices=GENDER_CHOICES)
     photo = forms.ImageField(required=False)
     is_author = forms.BooleanField(required=False)
-    phone = forms.CharField()
+    phone1 = forms.CharField(required=False)
     address = forms.CharField(required=False)
     country  = forms.CharField(required=False)
     city = forms.CharField(required=False)
-
+    
     class Meta:
         model = User
         fields = ('username','first_name','last_name','email')

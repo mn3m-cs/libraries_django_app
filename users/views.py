@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import FormView,CreateView
-from .models import UserProfile
+from .models import UserProfile,UserprofilePhones
 from .forms import UserProfileCreatetionForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -43,5 +43,10 @@ class Register(CreateView):
                 user_profile.photo = self.request.FILES['photo']
 
             user_profile.save()
+            if user_profile:
+                phones = [name for name in self.request.POST if name.startswith("phone")]
+                for phone in phones[0:2]: #save first two phones only
+                    phone = self.request.POST.get(phone)
+                    UserprofilePhones.objects.create(userprofile=user_profile,phone=phone)
 
         return HttpResponseRedirect(reverse('library:home'))

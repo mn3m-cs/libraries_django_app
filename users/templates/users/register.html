@@ -1,6 +1,12 @@
 {% extends 'users/base_users.html' %}
+{%load static%}
 
-{% block title %}Sign up to GoodBooks {% endblock %}
+{% block head %}
+<title>
+    Sign up to GoodBooks
+</title>
+<script src="{% static 'js/register.js' %}" defer></script>
+{% endblock %}
 
 {%block body %}
 <div class="container">
