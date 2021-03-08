@@ -1,0 +1,28 @@
+body{
+    background-image: url('../../img/blue-snow.png');
+}
+
+.logo {
+    font-family: 'Peralta', cursive;
+}
+
+.logo a {
+    color: rgba(0, 0,0, .9);
+}
+
+.logo a:hover,
+.logo a:active {
+    text-decoration: none;
+}
+
+[for="id_is_author"]{
+    display:inline-block;
+}
+
+#id_is_author{
+    display:inline-block;
+    position: absolute;
+    width:2rem;
+    top:-.2rem;
+    margin-left:.5rem;
+}
