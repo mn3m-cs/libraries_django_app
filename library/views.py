@@ -87,6 +87,12 @@ class BookDetailView(DetailView):
     context_object_name = 'book'
     template_name = 'library/books-media-detail-v2.html'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cats = Category.objects.all()
+        context['cats'] = cats
+        return context
+
 
 class CreateReview(LoginRequiredMixin, CreateView):
     model = Review

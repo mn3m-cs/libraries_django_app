@@ -86,7 +86,7 @@ class Book(models.Model):
     edition = models.CharField(max_length=100)
     length = models.PositiveSmallIntegerField()
     book_format = models.CharField(choices=formats,max_length=10) #TODO: multiple select
-    
+    language = models.CharField(max_length=50)
     def __str__(self):
         return self.name
 
