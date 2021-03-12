@@ -1,0 +1,22 @@
+@media screen and (min-width: 576px) {
+ 
+.img-cover{
+    /* width:50%; */
+    height:240px;
+    overflow:hidden;
+    box-sizing: border-box;
+}
+
+#info-table .title{
+margin-right: 3rem;
+display:inline-block;
+margin-left:.8rem;
+font-weight:bold;
+}
+
+
+
+
+
+
+}

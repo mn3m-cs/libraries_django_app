@@ -6,20 +6,14 @@
 <script src="{%static 'js/library.js'%}" defer></script>
 <link rel="stylesheet" href="{%static 'css/library.css' %}">
 {%endblock%}
-
-
+{#<!-- {%block welcome%} {%endblock%} -->#}
 {%block body%}
 <div class="container">
-    
 <form method="post">
 {%csrf_token%}
 {% include 'includes/form.html' %}
-<input type="reset" value="Reset">
-
-<button type="submit">Add</button>
+<!-- <input type="reset" value="Reset"> -->
+<button type="submit" class='btn btn-block btn-primary'>Add Library</button>
 </form>
-
 </div>
-
-
 {%endblock%}

@@ -16,8 +16,8 @@ class AddLibraryForm(forms.ModelForm):
 
 
 class AddBookForm(forms.ModelForm):
-    
+    # libraries = forms.SelectMultiple(choices=Libraryy.objects.all())
     class Meta:
         model = Book
-        fields = ['name','isbn','pub_date','category','price','cover']
+        fields = ['name','isbn','publisher','length','edition','book_format','pub_date','category','cover']
         

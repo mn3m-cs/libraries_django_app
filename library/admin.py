@@ -12,11 +12,5 @@ admin.site.register(models.Category)
 admin.site.register(models.LibraryBooks)
 admin.site.register(models.Review)
 admin.site.register(models.AuthorBooks)
-admin.site.register(models.CreditCard)
-admin.site.register(models.UserCards)
-admin.site.register(models.ShippingCompany)
-admin.site.register(models.ShippingCompanyPhone)
-admin.site.register(models.Order)
-admin.site.register(models.OrderBooks)
-
+admin.site.register(models.Publisher)
 

@@ -1,58 +1,88 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block head%}
-    <title>
-        Libraries
-    </title>
+    <title>Libraries</title>
+    <script src="{% static 'js/home.js' %}" defer></script>
+
     {%endblock%}
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=El+Messiri&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-</head>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <script src="{% static 'js/inherited_js.js' %}" defer> </script>
+  </head>
 
-<body>
-    {%block body%}
-    <div class="container-fluid" id='welcome'>
-        <span id='quote'>
-            
-            نحن لا نشكو من ندرة الكتب الممتازة، وإنما نشكو من ندرة القراء الممتازين، وإن القارئ الجيد ليس هو الذى يقرأ
-            كتبا كثيرة ولكنه إذا قرأ كتابا قرأه بطريقة جيدة. وقد كان العقاد – رحمه الله- يقول:" اقرأ كتابك جيدا ثلاث
-            مرات فذلك أنفع لك من قراءة ثلاثة كتب غير جيدة
-            
-            <span id='quote-author'>  د. عبد الكريم بكار</span>
-        </span>
-        
-    </div>
-    <nav class='container-fluid' id='main-nav'>
-        <ul>
-            <li id='home-li'> <a href="">Home</a></li>
-            <li> <a href="">Libraries</a></li>
-            <li> <a href="">Categories</a></li>
-            <li> <a href="">Top Selling</a></li>
-            <li style='float:right;margin-right:0;'> <a href="">About</a></li>
-        </ul>
-    </nav>
+  <body>
+    {%block welcome %}
+{#      TODO: show welcome with interval 24 hours#}
+    <div class="container-fluid" id="welcome">
+      <span id="quote">
+        نحن لا نشكو من ندرة الكتب الممتازة، وإنما نشكو من ندرة القراء الممتازين،
+        وإن القارئ الجيد ليس هو الذى يقرأ كتبا كثيرة ولكنه إذا قرأ كتابا قرأه
+        بطريقة جيدة. وقد كان العقاد – رحمه الله- يقول:" اقرأ كتابك جيدا ثلاث
+        مرات فذلك أنفع لك من قراءة ثلاثة كتب غير جيدة
 
-    <div class="container-fluid" id='books-container'>
-        {%for book in LibBooks %}
-        <div class='book-fitem'>
-            <img src="{{book.cover.url}}">
-            <p>{{book.name}}</p>
-            <p class='text-muted author'>{{book.author.user.first_name }} {{book.author.user.last_name}}</p>
-        </div>
-        {%endfor%}
+        <span id="quote-author"> د. عبد الكريم بكار</span>
+      </span>
     </div>
     {%endblock%}
-</body>
 
+    <nav class="container-fluid" id="main-nav">
+      <ul>
+        <li id="home-li"><a href="{% url 'library:home' %}">Home</a></li>
+        <li><a href="">Libraries</a></li>
+        <li><a href="">Categories</a></li>
+        <li><a href="">Top Selling</a></li>
+        <li style="float: right; margin-right: 0">
+          {% if user.is_authenticated %}
+          <div class="dropdown">
+              <span href="" id='username'>{{user.username}}</span>
+            <div class="dropdown-content">
+              <a href="#">wish list</a>
+              <a href="#">Link 3</a>
+              <hr style='margin:1px;'>
+              <a href="{% url 'users:logout' %}">Log Out</a>
+            </div>
+          </div>
+
+
+
+          
+
+          
+          {%else%}
+          <a href="{% url 'users:login' %}">Log In</a>
+          {%endif%}
+        </li>
+      </ul>
+    </nav>
+
+    {% block body%}
+    <div class="container-fluid" id="books-container">
+      {%for book in LibBooks %}
+      <div class="book-fitem">
+        <img src="{{book.cover.url}}" />
+        <p>{{book.name}}</p>
+        <!-- <p class="text-muted author">
+          {{book.author.user.first_name }} {{book.author.user.last_name}}
+        </p> -->
+      </div>
+      {%endfor%}
+    </div>
+    {%endblock%}
+  </body>
 </html>

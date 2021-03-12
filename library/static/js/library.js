@@ -40,7 +40,7 @@ city = document.querySelector('[name="city1"]');
 
 // function GFG_Fun(event) {
 //   // THIS WORK ON EDGE ONLY
-//   /* #TODO:
+//   /*
 //     Use the document.defaultView.getComputedStyle() method to get all the cascading styles
 //     associated with that particular element. After that, append the style to a string one by one
 //     by traversing the object.

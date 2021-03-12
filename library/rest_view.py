@@ -31,7 +31,7 @@ class AddLibraryBookAPIView(generics.CreateAPIView):
         da = serializer.data
         book_isbn = da['book_isbn']
         lib_name = da['lib_name']
-        #TODO: book is not created yet, we need to create it here first
+        # we create book in AddBook view
         book = Book.objects.get(isbn=book_isbn)
         libra = Libraryy.objects.get(name=lib_name)
         LibraryBooks.objects.create(library=libra,book=book)

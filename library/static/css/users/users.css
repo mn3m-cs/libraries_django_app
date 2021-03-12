@@ -15,11 +15,11 @@ body{
     text-decoration: none;
 }
 
-[for="id_is_author"]{
+[for="id_is_author"],[for="id_is_library_account"]{
     display:inline-block;
 }
 
-#id_is_author{
+#id_is_author, #id_is_library_account{
     display:inline-block;
     position: absolute;
     width:2rem;

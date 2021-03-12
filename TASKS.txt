@@ -1,0 +1,15 @@
+1- after book creation show animation or spinner say please wait.
+2- coonvert welcome phrase to message with django.
+
+
+
+BOOKS:
+Who add the price of the books?
+- Author Add books only, Can't add price
+- allow library accounts to set the price for this book in their library.
+-- Library can add books also.
+
+
+Library Account:
+owener ==> library
+-- account only for library, this account won't work as a normal user.

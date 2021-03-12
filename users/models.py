@@ -5,25 +5,31 @@ GENDER_CHOICES = (
     (0, 'Male'),
     (1, 'Female'),)
 
+
 class UserProfile(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     birth_date = models.DateField()
     gender = models.IntegerField(choices=GENDER_CHOICES)
-    photo = models.ImageField(upload_to='UserProfilePhotos/',blank=True,null=True)
+    photo = models.ImageField(upload_to='UserProfilePhotos/', blank=True, null=True)
     is_author = models.BooleanField()
-    country = models.CharField(null=True,blank=True,max_length=50)
-    city = models.CharField(null=True,blank=True,max_length=50)
-    address= models.CharField(null=True,blank=True,max_length=50)
+    is_library_account = models.BooleanField()
+    country = models.CharField(null=True, blank=True, max_length=50)
+    city = models.CharField(null=True, blank=True, max_length=50)
+    address = models.CharField(null=True, blank=True, max_length=50)
 
     def __str__(self):
-        return str(self.user)
-    
+        return str(self.user.first_name + self.user.last_name)
+
+    # if is_author is True and is_library_account is true arise Error
+
+
 class UserprofilePhones(models.Model):
-    userprofile = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
+    userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     phone = models.CharField(max_length=15)
 
     def __str__(self):
         return self.phone
+
 
 # class UserProfileAddresses(models.Model):
 #     userprofile = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
@@ -33,8 +39,8 @@ class UserprofilePhones(models.Model):
 #         return self.address
 
 class UserProfileFavourites(models.Model):
-    userprofile = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
-    book = models.ForeignKey("library.Book",on_delete=models.CASCADE)
+    userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    book = models.ForeignKey("library.Book", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.book
