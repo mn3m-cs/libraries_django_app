@@ -24,6 +24,7 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', include('library.urls')),
                   path('', include('users.urls')),
+                  path('',include('Review.urls')),
 
                   # CHANGE PASSWORD
                   path('settings/password/',

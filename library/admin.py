@@ -10,7 +10,6 @@ admin.site.register(models.LibraryCities)
 admin.site.register(models.LibraryCountries)
 admin.site.register(models.Category)
 admin.site.register(models.LibraryBooks)
-admin.site.register(models.Review)
 admin.site.register(models.AuthorBooks)
 admin.site.register(models.Publisher)
 

@@ -5,13 +5,15 @@
 
 
 <head>
+    {% block head %}
 
+    {% endblock %}
     <!-- Meta -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
 
     <!-- Title -->
-    <title> Libraries </title>
+    <title> Books Locator </title>
 
     <!-- Favicon -->
     <link href="{% static 'images/favicon.ico' %}" rel="icon" type="image/x-icon"/>
@@ -55,7 +57,7 @@
                                 <h1>
                                     <a href="{% url 'library:home' %}">
                                         <span class='brand'
-                                              style="font-family: 'Press Start 2P', cursive;">Book Locator</span>
+                                              style="font-family: 'Press Start 2P', cursive;">Books Locator</span> <!-- TODO: add magnifier img -->
                                     </a>
                                 </h1>
                             </div>

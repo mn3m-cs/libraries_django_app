@@ -116,18 +116,7 @@ class LibraryBooks(models.Model):
 
 # TODO:
 
-class Review(models.Model):
-    title = models.CharField(max_length=50)
-    body = models.TextField()
-    rate = models.SmallIntegerField(validators=[
-        MaxValueValidator(5),
-        MinValueValidator(0)
-    ])
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    userProfile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.title
 
 
 class Publisher(models.Model):

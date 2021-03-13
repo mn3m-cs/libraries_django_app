@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'library',
     'users',
     'shopping',
+    'Review',
     'widget_tweaks',
     'rest_framework',
     'django_filters',

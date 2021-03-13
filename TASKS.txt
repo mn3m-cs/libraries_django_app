@@ -13,3 +13,16 @@ Who add the price of the books?
 Library Account:
 owener ==> library
 -- account only for library, this account won't work as a normal user.
+
+One Request for user:
+1- check before save
+2- make unique_together
+
+#
+check if user has reviewed this book before:
+          Don't render 3Review Form
+
+      else:
+          render Review Form
+How?
+use get_context_date()

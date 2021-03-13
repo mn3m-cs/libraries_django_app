@@ -1,11 +1,11 @@
 from .models import (LibraryBooks, Book, Libraryy, LibraryAddresses,
                      LibraryPhones, LibraryCities,
-                     LibraryCountries, AuthorBooks, Review,Category)
+                     LibraryCountries, AuthorBooks, Category)
 from .forms import AddLibraryForm, AddBookForm
 from users.models import UserProfile
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from django.views.generic import ListView, CreateView, FormView,DetailView
+from django.views.generic import ListView, CreateView, FormView, DetailView
 from django.contrib.auth.mixins import UserPassesTestMixin
 
 
@@ -19,6 +19,7 @@ class HomeView(ListView):
         cats = Category.objects.all()
         context['cats'] = cats
         return context
+
 
 class AddLibrary(CreateView):  # TODO:add login Required
     form_class = AddLibraryForm
@@ -92,8 +93,3 @@ class BookDetailView(DetailView):
         cats = Category.objects.all()
         context['cats'] = cats
         return context
-
-
-class CreateReview(LoginRequiredMixin, CreateView):
-    model = Review
-    fields = ('title', 'body', 'rate', 'book', 'userprofile')
